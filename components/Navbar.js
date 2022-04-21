@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 export default function Navbar(){
-    let user = null;
+    // let user = null;
     let username = null
 
     return (
