@@ -24,7 +24,7 @@ function SignInButton(){
             await auth.signInWithPopup(googleAuthProvider)
 
         }catch(e){
-            console.log(e);
+            console.log(e); 
         }
     }
     return (

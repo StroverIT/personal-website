@@ -4,8 +4,7 @@ import {UserContext} from "../lib/context"
 
 export default function Navbar(){
 
-    const {user, username} = useContext(UserContext)
-    console.log(username);
+    const {user, username, email} = useContext(UserContext)
     return (
         <nav className="navbar">
             <ul>
@@ -16,7 +15,7 @@ export default function Navbar(){
                 </li>
 
                 { /* user is signed-in and has username*/}
-                {username &&(
+                {username || email&&(
                     <li>
                         <Link href="/account">
                             Account
@@ -25,7 +24,7 @@ export default function Navbar(){
                     
                 )}
                 {/* user is not signed OR has not created username */}
-                {!username && (
+                {(!username && !email )&& (
                     <li>
                         <Link href="/account/login">
                         <button>Log in</button>
