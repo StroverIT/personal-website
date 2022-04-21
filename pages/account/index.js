@@ -1,14 +1,24 @@
 import Head from 'next/head'
 import toast from "react-hot-toast"
 import { auth } from '../../lib/firebase'
+import {useRouter} from "next/router"
 
 export default function account() {
+    const router = useRouter()
+
+    const handleClick = e =>{
+        router.push("/")
+    }
   return (
     <>
-    <SignOutButton/>
+    <SignOutButton home={handleClick}/>
     </>
   )
 }
-function SignOutButton(){
-    return <button onClick={()=> auth.signOut()}>Изход</button>
+function SignOutButton({home}){
+    return <button onClick={()=> signOut(home)}>Изход</button>
+}
+function signOut(home){
+    auth.signOut()
+    home()
 }
