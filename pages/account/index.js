@@ -10,9 +10,9 @@ export default function account() {
         router.push("/")
     }
   return (
-    <>
+    <main>
     <SignOutButton home={handleClick}/>
-    </>
+    </main>
   )
 }
 function SignOutButton({home}){
